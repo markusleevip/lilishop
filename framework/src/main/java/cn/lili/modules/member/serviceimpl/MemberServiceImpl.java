@@ -40,12 +40,14 @@ import cn.lili.modules.store.service.StoreService;
 import cn.lili.mybatis.util.PageUtil;
 import cn.lili.rocketmq.RocketmqSendCallbackBuilder;
 import cn.lili.rocketmq.tags.MemberTagsEnum;
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -64,6 +66,7 @@ import java.util.Objects;
  * @since 2021-03-29 14:10:16
  */
 @Service
+@Slf4j
 public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> implements MemberService {
 
     /**
@@ -150,7 +153,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     @Override
     public Token usernameStoreLogin(String username, String password) {
 
+        log.info("username:" + username + ",password:" + password);
         Member member = this.findMember(username);
+        if (!Objects.isNull(member)) {
+            log.info(JSON.toJSONString(member));
+        }
         //判断用户是否存在
         if (member == null || !member.getDisabled()) {
             throw new ServiceException(ResultCode.USER_NOT_EXIST);

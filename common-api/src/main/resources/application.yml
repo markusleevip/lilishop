@@ -35,7 +35,7 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
-    password: lilishop
+    password:
     lettuce:
       pool:
         # 连接池最大连接数（使用负值表示没有限制） 默认 8
@@ -65,8 +65,8 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://127.0.0.1:3306/lilishop?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-        username: root
-        password: lilishop
+        username: devuser
+        password: devuser
         maxActive: 20
         initialSize: 5
         maxWait: 60000
@@ -144,8 +144,8 @@ swagger:
   termsOfServiceUrl: https://pickmall.cn
   contact:
     name: lili
-    url: https://pickmall.cn
-    email: admin@pickmall.com
+    url: http://127.0.0.1
+    email: admin@t.com
 
 # Mybatis-plus
 mybatis-plus:
@@ -192,15 +192,15 @@ lili:
   #短信模版配置
   sms:
     #登录
-    LOGIN: SMS_205755300
+    LOGIN: SMS_11
     #注册
-    REGISTER: SMS_205755298
+    REGISTER: SMS_22
     #找回密码
-    FIND_USER: SMS_205755301
+    FIND_USER: SMS_33
     #设置密码
-    UPDATE_PASSWORD: SMS_205755297
+    UPDATE_PASSWORD: SMS_44
     #支付密码
-    WALLET_PASSWORD: SMS_205755301
+    WALLET_PASSWORD: SMS_55
   system:
     isTestModel: true
   statistics:
@@ -210,8 +210,8 @@ lili:
     currentOnlineUpdate: 600
   #qq lbs 申请
   lbs:
-    key: 4BYBZ-7MT6S-PUAOA-6BNWL-FJUD7-UUFXT
-    sk: zhNKVrJK6UPOhqIjn8AQvG37b9sz6
+    key: 4BYBZ
+    sk: zhNKV
   #域名
   domain:
     pc: https://pc.b2b2c.pickmall.cn
@@ -248,9 +248,9 @@ lili:
         number-of-shards: 3
       index-prefix: lili
       schema: http
-    #      account:
-    #        username: elastic
-    #        password: LiLiShopES
+#        account:
+#          username: elastic
+#          password: _ZepAPaIhFWmkAmns=Qk
     logstash:
       server: 127.0.0.1:4560
     rocketmq:
@@ -271,7 +271,7 @@ lili:
       notice-send-topic: lili_send_notice_topic
       notice-send-group: lili_send_notice_group
 rocketmq:
-  name-server: 127.0.0.1:9876
+  name-server: 39.96.17.155:9876
   producer:
     group: lili_group
     send-message-timeout: 30000

@@ -54,7 +54,7 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
-    password: lilishop
+    password:
     lettuce:
       pool:
         # 连接池最大连接数（使用负值表示没有限制） 默认 8
@@ -74,8 +74,8 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://127.0.0.1:3306/lilishop?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-        username: root
-        password: lilishop
+        username: devuser
+        password: devuser
         maxActive: 50
         initialSize: 10
         maxWait: 60000
@@ -211,8 +211,8 @@ lili:
     currentOnlineUpdate: 600
   #qq lbs 申请
   lbs:
-    key: 4BYBZ-7MT6S-PUAOA-6BNWL-FJUD7-UUFXT
-    sk: zhNKVrJK6UPOhqIjn8AQvG37b9sz6
+    key: 4BYBZ-7MT6S-
+    sk: zhNK
   #域名
   domain:
     pc: https://pc-b2b2c.pickmall.cn
@@ -249,11 +249,8 @@ lili:
         number-of-shards: 3
       index-prefix: lili
       schema: http
-    #      account:
-    #        username: elastic
-    #        password: LiLiShopES
     logstash:
-      server: 192.168.0.116:4560
+      server: 127.0.0.1:4560
     rocketmq:
       promotion-topic: lili_promotion_topic
       promotion-group: lili_promotion_group
